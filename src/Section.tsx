@@ -100,7 +100,11 @@ export function Section() {
     if (result) {
       await fetchItems();
       setAddItemMode(false);
-      setItemForm({ title: "", description: "", file: null, type: "" });
+      setItemForm({ title: "", description: "", file: null, type: "Cours" });
+      alert("Success");
+    }
+    else{
+      alert("Fail");
     }
   };
 
