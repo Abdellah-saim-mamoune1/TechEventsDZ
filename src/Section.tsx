@@ -131,7 +131,7 @@ export function Section() {
           onChange={(e) => setSearch(e.target.value)}
           className="border px-3 py-2 rounded w-full md:w-1/3"
         />
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2"> 
                 <p>From</p>
               <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} className="border px-2 py-1 rounded" />
