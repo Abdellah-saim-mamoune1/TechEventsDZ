@@ -300,7 +300,7 @@ export function Section() {
   <div className="mt-4">
     <details className="group md:block">
       <summary className="md:hidden flex items-center gap-2 text-gray-800 font-medium hover:text-emerald-700 cursor-pointer">
-        <span>Show AI {item.type==="Course"?"Lesson":"Exercices"}</span>
+        <span>Show AI {item.type==="Cours"?"Course":"Exercices"}</span>
         <ChevronDown
           className="group-open:hidden"
           size={18}
