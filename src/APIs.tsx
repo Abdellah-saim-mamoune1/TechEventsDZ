@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function GetAllSections(){
     try{
-     const data=await axios.get("https://localhost:7059/api/SectionsManagement/GetAllSections");
+     const data=await axios.get("https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/SectionsManagement/GetAllSections");
      console.log(data.data);
      return data.data;
     }catch(error){
