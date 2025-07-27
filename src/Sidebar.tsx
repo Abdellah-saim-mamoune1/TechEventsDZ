@@ -7,7 +7,7 @@ export default function Sidebar() {
   const Navigate=useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [sections, setSections] = useState<Section[] | null>(null);
-
+  const IsAdmin=localStorage.getItem("IsAdmin");
   useEffect(() => {
     async function GetSections() {
       const data: Section[] | false = await GetAllSections();
@@ -73,7 +73,7 @@ export default function Sidebar() {
 </nav>
 
 
-<nav className="p-4 border-t border-gray-300 mt-8 ">
+{IsAdmin==="true"&&<nav className="p-4 border-t border-gray-300 mt-8 ">
     <p
       onClick={() => {Navigate("/addsection"), setIsOpen(false)}}
       className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg text-gray-900 hover:bg-gray-100 transition-colors"
@@ -81,7 +81,7 @@ export default function Sidebar() {
       <span className="truncate">Add Section</span>
     </p>
   
-</nav>
+</nav>}
 
 
       </aside>
