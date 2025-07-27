@@ -13,7 +13,7 @@ export async function GetAllSections(){
 
 export async function GetItemsBySection(Id:number){
     try{
-     const data=await axios.get(`https://localhost:7059/api/ItemsManagement/GetAllItemsBySectionId/${Id}`);
+     const data=await axios.get(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/GetAllItemsBySectionId/${Id}`);
       
      return data.data;
     }catch(error){
@@ -25,7 +25,7 @@ export async function GetItemsBySection(Id:number){
 
 export async function SearchtemBySection(SectionId:number,Query:string){
     try{
-     const data=await axios.get(`https://localhost:7059/api/ItemsManagement/SearchItemBySection&Name&Description/${SectionId},${Query}`);
+     const data=await axios.get(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/SearchItemBySection&Name&Description/${SectionId},${Query}`);
 
      return data;
     }catch(error){
@@ -36,7 +36,7 @@ export async function SearchtemBySection(SectionId:number,Query:string){
 
 export async function Searchtem(Query:string){
     try{
-     const data=await axios.get(`https://localhost:7059/api/ItemsManagement/SearchItemByName&Description/${Query}`);
+     const data=await axios.get(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/SearchItemByName&Description/${Query}`);
 
      return data;
     }catch(error){
@@ -48,7 +48,7 @@ export async function Searchtem(Query:string){
 
 export async function AddNewSection(Name:string){
     try{
-     const data=await axios.post(`https://localhost:7059/api/SectionsManagement/AddNewSection/${Name}`);
+     const data=await axios.post(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/SectionsManagement/AddNewSection/${Name}`);
      return data.data;
     }catch(error){
      return false;
@@ -59,7 +59,7 @@ export async function AddNewSection(Name:string){
 
 export async function DeleteSection(id:number){
     try{
-     const data=await axios.delete(`https://localhost:7059/api/SectionsManagement/DeleteSection/${id}`);
+     const data=await axios.delete(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/SectionsManagement/DeleteSection/${id}`);
      return data.data;
     }catch(error){
      return false;
@@ -71,7 +71,7 @@ export async function DeleteSection(id:number){
 
 export async function UpdateSection(id:number,name:string){
     try{
-     const data=await axios.put(`https://localhost:7059/api/SectionsManagement/UpdateSectionName/${id},${name}`);
+     const data=await axios.put(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/SectionsManagement/UpdateSectionName/${id},${name}`);
      return data.data;
     }catch(error){
      return false;
@@ -98,7 +98,7 @@ export interface AddItem{
 
 export async function AddItem(form:AddItem){
     try{
-     const data=await axios.post('https://localhost:7059/api/ItemsManagement/AddNewItem/',form);
+     const data=await axios.post('https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/AddNewItem/',form);
      return data.data;
     }catch(error){
      return false;
@@ -110,7 +110,7 @@ export async function AddItem(form:AddItem){
 
 export async function UpdateItem(form:UpdateItem){
     try{
-     const data=await axios.put('https://localhost:7059/api/ItemsManagement/UpdateItem/',form);
+     const data=await axios.put('https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/UpdateItem/',form);
      return data.data;
     }catch(error){
      return false;
@@ -120,7 +120,7 @@ export async function UpdateItem(form:UpdateItem){
 
 export async function DeleteItem(id:number){
     try{
-     const data=await axios.delete(`https://localhost:7059/api/ItemsManagement/DeleteItemById/${id}`);
+     const data=await axios.delete(`https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/DeleteItemById/${id}`);
      return data.data;
     }catch(error){
      return false;
