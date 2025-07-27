@@ -138,7 +138,7 @@ export function Section() {
             </div>
          <div className="flex gap-2"> 
                 <p>To</p>
-          <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} className="border px-2 py-1 rounded" />
+          <input type="date" className="w-6" value={toDate} onChange={(e) => setToDate(e.target.value)} className="border px-2 py-1 rounded" />
         </div>
         </div>
       </div>
