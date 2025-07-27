@@ -13,9 +13,7 @@ export function Home(){
               <p className="mt-2 text-center text-gray-600">
           All rights reserved.
               </p>
-              <p>
-                {localStorage.getItem("Clicks")}
-              </p>
+            
         
         </div>
     )
