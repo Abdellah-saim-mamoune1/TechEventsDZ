@@ -60,7 +60,10 @@ export function Section() {
     setFilteredItems(filtered);
   }, [search, fromDate, toDate, items]);
 
-  const handleDownload = (url: string) => window.open(url, "_blank");
+  const handleDownload = (url: string) =>{
+  const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
+  window.open(viewerUrl, "_blank");}
+
   const toggleShowVideos = (id: number) => setShowVideos(prev => ({ ...prev, [id]: !prev[id] }));
   const toggleShowGithub = (id: number) => setShowGithub(prev => ({ ...prev, [id]: !prev[id] }));
 
