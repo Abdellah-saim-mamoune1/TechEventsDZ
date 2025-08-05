@@ -26,10 +26,10 @@ export default function Sidebar() {
      
       {!isOpen && (
         <button
-          className="fixed top-2 left-4 z-50 bg-balck p-2 rounded shadow"
+          className="fixed top-3 left-4 z-50 bg-balck  rounded shadow"
           onClick={() => setIsOpen(true)}
         >
-          <Menu size={28} color="white"/>
+          <Menu size={40} color="white"/>
         </button>
       )}
 
@@ -43,7 +43,7 @@ export default function Sidebar() {
         <div className=" absolute top-2 right-2">
           <button
             onClick={() => setIsOpen(false)}
-            className="p-1 rounded hover:bg-gray-100"
+            className="p-1 rounded hover:bg-gray-800"
           >
             <X size={24} color="white" />
           </button>
@@ -54,7 +54,7 @@ export default function Sidebar() {
     Navigate("/");
     setIsOpen(false);
   }}
-  className="p-6 text-2xl font-bold  cursor-pointer border-b border-gray-400 hover:bg-gray-100 flex items-center gap-3"
+  className="p-6 text-2xl font-bold  cursor-pointer border-b border-gray-500 hover:bg-gray-900 flex items-center gap-3"
 >
   🏠 Home
 </div>
@@ -73,10 +73,10 @@ export default function Sidebar() {
 </nav>
 
 
-{IsAdmin==="true"&&<nav className="p-4 border-t  border-gray-300 mt-8 ">
+{IsAdmin==="true"&&<nav className="p-4 border-t  border-gray-500 mt-8 ">
     <p
       onClick={() => {Navigate("/addsection"), setIsOpen(false)}}
-      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg hover:bg-gray-100 transition-colors"
+      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg hover:bg-gray-900 transition-colors"
     > 
       <span className="truncate">Add Section</span>
     </p>
