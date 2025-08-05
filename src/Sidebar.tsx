@@ -54,7 +54,7 @@ export default function Sidebar() {
     Navigate("/");
     setIsOpen(false);
   }}
-  className="p-6 text-2xl font-bold  cursor-pointer border-b border-gray-500 hover:bg-gray-900 flex items-center gap-3"
+  className="p-6 text-2xl font-bold  cursor-pointer border-b border-gray-700 hover:bg-gray-900 flex items-center gap-3"
 >
   🏠 Home
 </div>
