@@ -61,8 +61,8 @@ export function Section() {
   }, [search, fromDate, toDate, items]);
 
   const handleDownload = (url: string) =>{
-  const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-  window.open(viewerUrl, "_blank");}
+  const driveViewerUrl = `https://drive.google.com/viewerng/viewer?embedded=true&url=${encodeURIComponent(url)}`;
+  window.open(driveViewerUrl, "_blank");}
 
   const toggleShowVideos = (id: number) => setShowVideos(prev => ({ ...prev, [id]: !prev[id] }));
   const toggleShowGithub = (id: number) => setShowGithub(prev => ({ ...prev, [id]: !prev[id] }));
