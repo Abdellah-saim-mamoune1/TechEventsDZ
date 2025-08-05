@@ -37,7 +37,7 @@ export const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://localhost:7059/api/ItemsManagement/login/${formData.Name},${formData.password}`);
+        `https://filesmanagementapp-g3f8djcxgubja3c6.spaincentral-01.azurewebsites.net/api/ItemsManagement/login/${formData.Name},${formData.password}`);
 
       if (response.status===200) {
        localStorage.setItem("IsAdmin","true");

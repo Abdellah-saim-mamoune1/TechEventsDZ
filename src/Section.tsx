@@ -19,8 +19,8 @@ export function Section() {
   const [items, setItems] = useState<ResourceItem[] | null>(null);
   const [filteredItems, setFilteredItems] = useState<ResourceItem[]>([]);
   const [search, setSearch] = useState("");
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  const [fromDate] = useState("");
+  const [toDate] = useState("");
   const [showVideos, setShowVideos] = useState<Record<number, boolean>>({});
   const [showGithub, setShowGithub] = useState<Record<number, boolean>>({});
   const [sectionSettingsOpen, setSectionSettingsOpen] = useState(false);
@@ -100,7 +100,11 @@ export function Section() {
     if (result) {
       await fetchItems();
       setAddItemMode(false);
-      setItemForm({ title: "", description: "", file: null, type: "" });
+      setItemForm({ title: "", description: "", file: null, type: "Cours" });
+      alert("Success");
+    }
+    else{
+      alert("Fail");
     }
   };
 
@@ -131,16 +135,7 @@ export function Section() {
           onChange={(e) => setSearch(e.target.value)}
           className="border px-3 py-2 rounded w-full md:w-1/3"
         />
-        <div className="flex gap-4">
-            <div className="flex flex-col gap-2"> 
-                <p>From</p>
-              <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} className="border px-2 py-1 rounded" />
-            </div>
-         <div className="flex flex-col gap-2"> 
-                <p>To</p>
-          <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} className="border px-2 py-1 rounded" />
-        </div>
-        </div>
+       
       </div>
 
       {/* Admin Section Settings */}
