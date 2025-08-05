@@ -22,20 +22,20 @@ export default function Sidebar() {
   };
 
   return (
-    <>
+    <div className="">
      
       {!isOpen && (
         <button
-          className="fixed top-2 left-4 z-50 bg-white p-2 rounded shadow"
+          className="fixed top-2 left-4 z-50 bg-balck p-2 rounded shadow"
           onClick={() => setIsOpen(true)}
         >
-          <Menu size={24} />
+          <Menu size={28} color="white"/>
         </button>
       )}
 
       
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-md z-40 transition-transform duration-300
+        className={`fixed top-0 left-0 h-full w-64 text-white bg-black shadow-md z-40 transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
@@ -45,7 +45,7 @@ export default function Sidebar() {
             onClick={() => setIsOpen(false)}
             className="p-1 rounded hover:bg-gray-100"
           >
-            <X size={24} />
+            <X size={24} color="white" />
           </button>
         </div>
 
@@ -54,17 +54,17 @@ export default function Sidebar() {
     Navigate("/");
     setIsOpen(false);
   }}
-  className="p-6 text-2xl font-bold text-gray-800 cursor-pointer border-b border-gray-300 hover:bg-gray-100 flex items-center gap-3"
+  className="p-6 text-2xl font-bold  cursor-pointer border-b border-gray-400 hover:bg-gray-100 flex items-center gap-3"
 >
   🏠 Home
 </div>
 
-<nav className="p-4 space-y-2">
+<nav className="p-4  space-y-2">
   {sections?.map((item) => (
     <p
       key={item.id}
       onClick={() => handleClick(item.id)}
-      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg hover:bg-gray-900 transition-colors"
     >
       <span className="w-2.5 h-2.5 rounded-full bg-gray-500 flex-shrink-0"></span>
       <span className="truncate">{item.name}</span>
@@ -73,10 +73,10 @@ export default function Sidebar() {
 </nav>
 
 
-{IsAdmin==="true"&&<nav className="p-4 border-t border-gray-300 mt-8 ">
+{IsAdmin==="true"&&<nav className="p-4 border-t  border-gray-300 mt-8 ">
     <p
       onClick={() => {Navigate("/addsection"), setIsOpen(false)}}
-      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg text-gray-900 hover:bg-gray-100 transition-colors"
+      className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg hover:bg-gray-100 transition-colors"
     > 
       <span className="truncate">Add Section</span>
     </p>
@@ -85,6 +85,6 @@ export default function Sidebar() {
 
 
       </aside>
-    </>
+    </div>
   );
 }

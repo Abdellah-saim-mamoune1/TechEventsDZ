@@ -20,7 +20,7 @@ function handleclick(){
  <div onClick={()=>handleclick()}><Sidebar /></div>
         <div className="flex-1 h-full overflow-y-auto flex flex-col">
        
-       <div className="flex-1 dark:bg-gray-900 p-3">
+       <div className="flex-1 dark:bg-gray-900 ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/section/:id" element={<Section />} />

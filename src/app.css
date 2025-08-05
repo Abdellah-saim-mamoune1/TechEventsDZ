@@ -24,7 +24,8 @@ body{
 
   overflow-x:hidden;
   background-color: rgb(240, 240, 240);
-
+   padding: 0;
+  margin:0;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -35,7 +36,8 @@ body{
   display: flex;
   flex-direction: row;
   height: 100vh;
-  
+  padding: 0;
+  margin:0;
   
 }
 
@@ -50,9 +52,6 @@ body{
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
-
-
-
 
 
 
