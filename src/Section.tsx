@@ -217,7 +217,24 @@ export function Section() {
           <>
             <p className="text-gray-400 mb-2">{item.description}</p>
             <p className="text-xs text-gray-500 mb-2">Date: {new Date(item.createdAt).toLocaleDateString()}</p>
-            <button onClick={() => handleDownload(item.file)} className="text-blue-400 underline mb-3">📄 Open File</button>
+           <div className="flex mt-2 sm:flex-row mb-4">
+  <button
+    onClick={() => handleDownload(item.file)}
+    className="text-white pr-3 py-1 rounded hover:bg-blue-700"
+  >
+    📄 Open
+  </button>
+  <a
+    href={item.file}
+    download
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white px-2 py-1 rounded hover:bg-green-700 text-center"
+  >
+    ⬇️ Download
+  </a>
+</div>
+
           </>
         )}
 
