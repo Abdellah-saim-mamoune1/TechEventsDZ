@@ -52,7 +52,7 @@ export function Home() {
       />
 
       {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full mb-15 px-4 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full mb-30 px-4 text-center">
         <h1 className="text-3xl font-bold mb-4">Welcome</h1>
         <p className="text-gray-100 mb-2">
           This is a simple platform for sharing second-year computer science university files.
