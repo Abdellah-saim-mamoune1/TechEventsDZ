@@ -22,10 +22,7 @@ export default function Sidebar() {
   };
 
 
-  if(sections===null){
-
-    return <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-500 rounded-full animate-spin"></div>
-  }
+  
   return (
     <div className="">
      
@@ -65,6 +62,7 @@ export default function Sidebar() {
 </div>
 
 <nav className="p-4  space-y-2">
+   {!sections&& <div className="w-full flex items-center justify-center"> <div className="items-center w-8 h-8 border-4 border-black border-l-teal-300 border-r-teal-300 rounded-full animate-spin"></div></div>} 
   {sections?.map((item) => (
     <p
       key={item.id}
