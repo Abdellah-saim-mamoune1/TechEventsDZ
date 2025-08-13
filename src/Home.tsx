@@ -45,33 +45,7 @@ export function Home() {
 
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
-      {/* Background Stars */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <svg className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-          {Array.from({ length: 120 }).map((_, i) => (
-            <circle
-              key={i}
-              cx={Math.random() * 100 + "%"}
-              cy={Math.random() * 100 + "%"}
-              r={Math.random() * 1.5}
-              fill={
-                ["#ffffff", "#7dd3fc", "#fbbf24", "#f472b6"][
-                  Math.floor(Math.random() * 4)
-                ]
-              }
-              opacity={Math.random()}
-            >
-              <animate
-                attributeName="opacity"
-                values="0;1;0"
-                dur={`${2 + Math.random() * 3}s`}
-                repeatCount="indefinite"
-              />
-            </circle>
-          ))}
-        </svg>
-      </div>
-
+  
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>

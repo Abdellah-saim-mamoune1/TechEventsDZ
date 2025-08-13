@@ -22,7 +22,7 @@ export function StayNotified() {
   };
 
   return (
-    <div className="p-6 bg-black flex flex-col items-center justify-center rounded-lg shadow-lg h-full w-full border border-purple-500/30">
+    <div className="p-6 bg-black flex flex-col items-center justify-center h-full w-full">
       
       <div className="flex flex-col items-center justify-center mb-30">
       <h2 className="text-2xl font-bold text-white mb-2">

@@ -1,6 +1,6 @@
 export function ContactUs() {
   return (
-    <div className="p-4 sm:p-10 lg:p-12 bg-black rounded-lg shadow-lg border border-blue-500/30 mx-auto h-full w-full">
+    <div className="p-4 sm:p-10 lg:p-12 bg-black mx-auto h-full w-full">
       <h2 className="text-2xl text-center font-bold text-white mb-4">Contact Us</h2>
     <div className="max-w-lg mx-auto">
       <p className="text-gray-300 leading-relaxed mb-3 text-center">
