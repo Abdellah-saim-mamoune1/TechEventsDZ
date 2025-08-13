@@ -5,6 +5,10 @@ import { Section } from "./Section";
 import "./app.css"
 import { LoginPage } from "./Login";
 import { AddSection } from "./AddSection";
+import { RequestEvent } from "./RequestEvent";
+import { StayNotified } from "./StayNotified";
+import { About } from "./About";
+import { ContactUs } from "./ContactUs";
 function App() {
 function handleclick(){
   let clicks= localStorage.getItem("Clicks");
@@ -23,9 +27,12 @@ function handleclick(){
        <div className="flex-1 dark:bg-gray-900 ">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/section/:id" element={<Section />} />
+            <Route path="/request-event" element={<RequestEvent />} />
+            <Route path="/stay-notified" element={<StayNotified/>} />
+            <Route path="/about" element={<About/>} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/addsection" element={<AddSection />} />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </div>
         </div>

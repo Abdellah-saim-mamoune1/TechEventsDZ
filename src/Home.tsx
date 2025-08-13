@@ -1,68 +1,120 @@
-import { useEffect, useRef } from "react";
 
 export function Home() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const today = new Date();
+  const events = [
+    {
+      id: 1,
+      name: "Hackathon 2025",
+      type: "Online",
+      organizer: "Tech Innovators",
+      region: "Global",
+      date: "2025-10-15",
+      url: "https://hackathon2025.com",
+    },
+    {
+      id: 2,
+      name: "AI Summit",
+      type: "In-Person",
+      organizer: "AI Corp",
+      region: "USA",
+      date: "2025-12-01",
+      url: "https://aisummit.com",
+    },
+    {
+      id: 3,
+      name: "Developer Fest",
+      type: "Hybrid",
+      organizer: "CodeWorld",
+      region: "Europe",
+      date: "2025-08-10",
+      url: "https://devfest.com",
+    },
+  ];
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  const getStatus = (dateStr: string) => {
+    const eventDate = new Date(dateStr);
+    if (eventDate.toDateString() === today.toDateString()) return "Ongoing";
+    return eventDate < today ? "Completed" : "Upcoming";
+  };
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const fontSize = 20; // Increased spacing
-    const columns = Math.floor(canvas.width / (fontSize * 2)); // Fewer columns
-    const drops: number[] = new Array(columns).fill(1);
-
-    const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.07)"; // Slightly stronger fade for cleaner look
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#0F0"; // Green text
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = Math.random() > 0.5 ? "1" : "0";
-        const x = i * fontSize * 2; // More space between columns
-        const y = drops[i] * fontSize;
-
-        ctx.fillText(text, x, y);
-
-        if (y > canvas.height && Math.random() > 0.98) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-    };
-
-    const interval = setInterval(draw, 70); // Slightly slower
-    return () => clearInterval(interval);
-  }, []);
+  const statusColors: Record<string, string> = {
+    Completed: "bg-blue-500/20 text-blue-300 border-blue-400/30",
+    Upcoming: "bg-yellow-500/20 text-yellow-300 border-yellow-400/30",
+    Ongoing: "bg-green-500/20 text-green-300 border-green-400/30",
+  };
 
   return (
-    <div className="relative w-full h-full bg-black text-white overflow-hidden">
-      {/* Matrix background */}
-      <canvas
-        ref={canvasRef}
-        className="absolute top-0 left-0 w-full h-full z-0"
-      />
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
+      {/* Background Stars */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <svg className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          {Array.from({ length: 120 }).map((_, i) => (
+            <circle
+              key={i}
+              cx={Math.random() * 100 + "%"}
+              cy={Math.random() * 100 + "%"}
+              r={Math.random() * 1.5}
+              fill={
+                ["#ffffff", "#7dd3fc", "#fbbf24", "#f472b6"][
+                  Math.floor(Math.random() * 4)
+                ]
+              }
+              opacity={Math.random()}
+            >
+              <animate
+                attributeName="opacity"
+                values="0;1;0"
+                dur={`${2 + Math.random() * 3}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          ))}
+        </svg>
+      </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-        <div className="mb-27">
-        <h1 className="text-3xl font-bold mb-4">Welcome</h1>
-        <p className="text-gray-100 mb-2">
-          This is a simple platform for sharing second-year computer science university files.
-        </p>
-        <p className="text-gray-100 mb-2">Developer: Abdellah Saim Mamoune.</p>
-        <p className="text-gray-100">All rights reserved.</p>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+          {events.map((event) => {
+            const status = getStatus(event.date);
+            return (
+              <div
+                key={event.id}
+                className="bg-gray-900/70 border border-gray-700 rounded-xl p-5 shadow-lg backdrop-blur-sm hover:scale-105 transition-transform"
+              >
+                <h2 className="text-xl font-semibold mb-2">{event.name}</h2>
+                <p className="text-sm text-gray-400 mb-1">
+                  <span className="font-bold">Type:</span> {event.type}
+                </p>
+                <p className="text-sm text-gray-400 mb-1">
+                  <span className="font-bold">Organizer:</span> {event.organizer}
+                </p>
+                <p className="text-sm text-gray-400 mb-1">
+                  <span className="font-bold">Region:</span> {event.region}
+                </p>
+                <p className="text-sm text-gray-400 mb-1">
+                  <span className="font-bold">Date:</span> {event.date}
+                </p>
+                <a
+                  href={event.url}
+                  className="block mt-3 text-cyan-300 hover:text-cyan-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 Visit Website
+                </a>
+                <span
+                  className={`inline-block mt-4 px-3 py-1 text-xs rounded-full border ${statusColors[status]}`}
+                >
+                  {status}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 }
-
