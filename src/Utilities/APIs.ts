@@ -5,7 +5,7 @@ export async function AddEventRequestAPI(data:IEventRequestAdd ){
 
 try{
 
-  await axios.post("https://localhost:7173/api/user/events/request/",data);
+  await axios.post("https://eventswebapp-ereaatb0g4gvfug3.spaincentral-01.azurewebsites.net/api/user/events/request/",data);
   return true;
    
  } catch(error){
@@ -20,7 +20,7 @@ export async function StayNotifiedAPI(data:IStayNotified ){
 
 try{
 
-  await axios.post("https://localhost:7173/api/user/events/stay-notified/",data);
+  await axios.post("https://eventswebapp-ereaatb0g4gvfug3.spaincentral-01.azurewebsites.net/api/user/events/stay-notified/",data);
   return true;
    
  } catch(error){
@@ -36,7 +36,7 @@ export async function ContactUsAPI( data:IContactUs ){
 
 try{
 
-  await axios.post("https://localhost:7173/api/user/events/contact-us/",data);
+  await axios.post("https://eventswebapp-ereaatb0g4gvfug3.spaincentral-01.azurewebsites.net/api/user/events/contact-us/",data);
   return true;
    
  } catch(error){
@@ -51,7 +51,7 @@ export async function GetPaginatedEventsAPI(){
 
 try{
 
-  var response=await axios.get("https://localhost:7173/api/user/events/1&10");
+  var response=await axios.get("https://eventswebapp-ereaatb0g4gvfug3.spaincentral-01.azurewebsites.net/api/user/events/1&10");
   return response.data.data;
    
  } catch(error){
