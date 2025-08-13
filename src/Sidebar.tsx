@@ -19,10 +19,7 @@ export default function Sidebar() {
     GetSections();
   }, []);
 
-  const handleClick = (id: number) => {
-    setIsOpen(false);
-    Navigate(`/section/${id}`);
-  };
+
 
   return (
     <div>
