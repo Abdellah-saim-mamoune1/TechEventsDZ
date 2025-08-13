@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Calendar, Link as LinkIcon, MapPin, Type as TypeIcon, User, Users } from "lucide-react";
-import { AddEventRequestAPI } from "./Tools/APIs";
-import { IEventRequestAdd } from "./Tools/Interfaces";
+import { AddEventRequestAPI } from "../Utilities/APIs";
+import { IEventRequestAdd } from "../Utilities/Interfaces";
 
 export function RequestEvent() {
   const [formData, setFormData] = useState<IEventRequestAdd>({
@@ -54,7 +54,6 @@ export function RequestEvent() {
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4">
       {/* Galaxy background */}
-
 
        
       <div className="absolute inset-0 bg-black overflow-hidden">
@@ -120,10 +119,9 @@ export function RequestEvent() {
               Type
             </option>
             <option value="Conference" className="bg-black text-white">Conference</option>
-            <option value="Workshop" className="bg-black text-white">Workshop</option>
-            <option value="Meetup" className="bg-black text-white">Meetup</option>
-            <option value="Webinar" className="bg-black text-white">Webinar</option>
-            <option value="Competition" className="bg-black text-white">Competition</option>
+            <option value="Hackathone" className="bg-black text-white">Hackathone</option>
+            <option value="Startup Festival" className="bg-black text-white">Startup Festival</option>
+            <option value="Awards" className="bg-black text-white">Awards</option>
           </select>
         </div>
 

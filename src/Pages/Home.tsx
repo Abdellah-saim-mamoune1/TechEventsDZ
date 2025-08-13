@@ -1,36 +1,11 @@
+import { useEffect, useState } from "react";
+import { GetPaginatedEventsAPI } from "../Utilities/APIs";
+import { IEventsGet } from "../Utilities/Interfaces";
 
 export function Home() {
   const today = new Date();
-  const events = [
-    {
-      id: 1,
-      name: "Hackathon 2025",
-      type: "Online",
-      organizer: "Tech Innovators",
-      region: "Global",
-      date: "2025-10-15",
-      url: "https://hackathon2025.com",
-    },
-    {
-      id: 2,
-      name: "AI Summit",
-      type: "In-Person",
-      organizer: "AI Corp",
-      region: "USA",
-      date: "2025-12-01",
-      url: "https://aisummit.com",
-    },
-    {
-      id: 3,
-      name: "Developer Fest",
-      type: "Hybrid",
-      organizer: "CodeWorld",
-      region: "Europe",
-      date: "2025-08-10",
-      url: "https://devfest.com",
-    },
-  ];
-
+  const [events,setEvents] = useState<IEventsGet[]|null>(null);
+   
   const getStatus = (dateStr: string) => {
     const eventDate = new Date(dateStr);
     if (eventDate.toDateString() === today.toDateString()) return "Ongoing";
@@ -43,13 +18,46 @@ export function Home() {
     Ongoing: "bg-green-500/20 text-green-300 border-green-400/30",
   };
 
+
+  useEffect(()=>{
+async function Get(){
+  var data=await GetPaginatedEventsAPI();
+  if(data!==false)
+    setEvents(data);
+  else
+    setEvents([])
+}
+ Get();
+  })
+
+
+  if(events===null){
+    return  (
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>
+        <p className="text-xl text center font-semibold">Loading...</p>
+     </div>
+    </div>)
+  }
+
+  if(events.length===0){
+    return  (
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>
+        <p className="text-xl text center font-semibold">No events are available</p>
+     </div>
+    </div>)
+  }
+
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
   
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>
-
+       
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {events.map((event) => {
             const status = getStatus(event.date);

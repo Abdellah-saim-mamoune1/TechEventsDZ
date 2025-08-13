@@ -1,9 +1,8 @@
 import Sidebar from "./Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Home";
-import "./app.css"
+import "../Design/app.css"
 import { LoginPage } from "./Login";
-import { AddSection } from "./AddSection";
 import { RequestEvent } from "./RequestEvent";
 import { StayNotified } from "./StayNotified";
 import { About } from "./About";
@@ -29,8 +28,7 @@ function handleclick(){
             <Route path="/request-event" element={<RequestEvent />} />
             <Route path="/stay-notified" element={<StayNotified/>} />
             <Route path="/about" element={<About/>} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/addsection" element={<AddSection />} />
+            <Route path="/login" element={<LoginPage />}/>
             <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </div>
