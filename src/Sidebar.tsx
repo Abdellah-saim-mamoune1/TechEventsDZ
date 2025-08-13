@@ -25,17 +25,17 @@ export default function Sidebar() {
     <div>
       {!isOpen && (
         <button
-          className="fixed top-3 left-4 z-50 p-2 rounded bg-gray-900/80 border border-gray-700 hover:border-cyan-400"
+          className="fixed top-3 left-4 z-50 p-2 rounded "
           onClick={() => setIsOpen(true)}
         >
-          <Menu size={28} color="white" />
+          <Menu size={38} color="white" />
         </button>
       )}
 
       <aside
         className={`fixed top-0 left-0 h-full w-64 sm:w-70 lg:w-74 text-white 
         bg-gradient-to-b from-gray-900 via-blue-900 to-black
-        shadow-xl z-40 transition-transform duration-300 border-r border-blue-900
+        shadow-xl z-40 transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
