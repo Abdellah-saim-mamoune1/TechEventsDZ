@@ -28,18 +28,34 @@ async function Get(){
     setEvents([])
 }
  Get();
-  })
+  },[])
 
 
-  if(events===null){
-    return  (
-    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden p-4">
-      <div className="relative z-10 flex flex-col items-center">
-        <h1 className="text-3xl ml-[-10px] lg-text-4xl font-bold mb-8">🌌 Events</h1>
-        <p className="text-xl text center font-semibold">Loading...</p>
-     </div>
-    </div>)
-  }
+if (events === null) {
+  return (
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center space-y-6">
+        {/* Title */}
+        <h1 className="text-2xl lg:text-4xl font-bold text-center">
+          🌌 TechEvents DZ
+        </h1>
+
+        {/* Animated Loader */}
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 bg-teal-400 rounded-full animate-bounce"></div>
+          <div className="w-4 h-4 bg-teal-400 rounded-full animate-bounce delay-150"></div>
+          <div className="w-4 h-4 bg-teal-400 rounded-full animate-bounce delay-300"></div>
+        </div>
+
+        {/* Fun loading text */}
+        <p className="text-lg text-gray-300 animate-pulse">
+          Loading upcoming events...
+        </p>
+      </div>
+    </div>
+  );
+}
+
 
   if(events.length===0){
     return  (

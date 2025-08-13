@@ -32,7 +32,7 @@ export default function Sidebar() {
             onClick={() => setIsOpen(false)}
             className="p-1 rounded hover:bg-gray-800"
           >
-            <X size={24} color="white" />
+            <X size={28} color="white" />
           </button>
         </div>
 
@@ -41,9 +41,9 @@ export default function Sidebar() {
             Navigate("/");
             setIsOpen(false);
           }}
-          className="p-6 text-2xl font-bold cursor-pointer border-b border-gray-700 hover:bg-gray-800 flex items-center gap-3"
+          className="p-6 text-xl font-bold cursor-pointer border-b border-gray-700 hover:bg-gray-800 flex items-center gap-3"
         >
-          🌌 Events
+          🌌 TechEvents DZ
         </div>
 
     <nav className="p-4 space-y-2">
