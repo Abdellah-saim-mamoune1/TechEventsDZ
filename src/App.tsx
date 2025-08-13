@@ -1,7 +1,6 @@
 import Sidebar from "./Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Home";
-import { Section } from "./Section";
 import "./app.css"
 import { LoginPage } from "./Login";
 import { AddSection } from "./AddSection";
