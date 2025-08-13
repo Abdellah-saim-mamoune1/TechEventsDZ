@@ -25,7 +25,7 @@ export default function Sidebar() {
     <div>
       {!isOpen && (
         <button
-          className="fixed top-3 left-4 z-50 p-2 rounded "
+          className="fixed top-2 left-2 z-50 p-2 rounded "
           onClick={() => setIsOpen(true)}
         >
           <Menu size={38} color="white" />
