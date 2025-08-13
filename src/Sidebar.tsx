@@ -1,24 +1,12 @@
-import { useEffect, useState } from "react";
+import  {useState}  from "react";
 import { Menu, X } from "lucide-react";
-import { Section } from "./Interfaces";
-import { GetAllSections } from "./APIs";
 import { useNavigate } from "react-router-dom";
 import { Calendar, Bell, Info, Mail } from "lucide-react";
 
 export default function Sidebar() {
   const Navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [sections, setSections] = useState<Section[] | null>(null);
   const IsAdmin = localStorage.getItem("IsAdmin");
-
-  useEffect(() => {
-    async function GetSections() {
-      const data: Section[] | false = await GetAllSections();
-      if (data !== false) setSections(data);
-    }
-    GetSections();
-  }, []);
-
 
 
   return (
@@ -59,11 +47,7 @@ export default function Sidebar() {
         </div>
 
     <nav className="p-4 space-y-2">
-  {!sections && (
-    <div className="w-full flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-gray-800 border-l-teal-300 border-r-teal-300 rounded-full animate-spin"></div>
-    </div>
-  )}
+  
 
   <p onClick={()=>Navigate("/request-event")}className="flex items-center cursor-pointer gap-3 px-4 py-2 text-lg font-medium rounded-lg hover:bg-blue-800/40 transition-colors">
     <Calendar size={20} className="text-teal-300" />
